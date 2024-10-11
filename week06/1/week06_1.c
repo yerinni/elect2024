@@ -1,5 +1,5 @@
 //week06_1
-//양수음수판단
+
 
 #include <stdio.h>
 
