@@ -9,7 +9,6 @@ int main(void)
 	int num = 0;
 	
 	printf("Input a string: ");
-	scanf("%c", &c);
 	
 	while( (c=getchar()) != '\n')
 	{
