@@ -9,8 +9,11 @@ int main(void)
 	printf("Enter an integer: ");
 	scanf("%i", &x);
 	
-	result = abs(x);
-	printf("%i", result);
+	if (x < 0)
+		x = -x;
+		
+	printf("%i", x);
+	
 	
 	
 }
