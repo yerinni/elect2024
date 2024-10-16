@@ -3,50 +3,52 @@
 
 #include <stdio.h>
 
-int combination(int n, int r) {
-    if (r > n) {
-        return 0;  // 조합 계산에서 r이 n보다 클 수 없으므로 0 반환
-    }
-    
-    int result = factorial(n) / (factorial(r) * factorial(n - r));
-    return result;
+int get_integer();      
+int combination(int n, int r);  
+int factorial(int num);  
+
+int main(void)
+{
+    int n, r, result;
+
+  
+    printf("Enter the value:  ");
+    n = get_integer();    
+
+    printf("Enter the value:  ");
+    r = get_integer();   
+
+
+    result = combination(n, r);
+
+  
+    printf("The result of C(%d, %d) is %d.\n", n, r, result);
+
+    return 0;
 }
 
 
-int factorial(int n) 
+int combination(int n, int r)
 {
-   
-    if (n == 0 || n == 1) {
-        return 1;  // 0! = 1, 1! = 1
-    }
+
+    return factorial(n) / (factorial(n - r) * factorial(r));
+}
+
+
+int factorial(int num)
+{
     int res = 1;
-    int i = 2;
-    for (i = 2; i <= n; i++) {
+    int i = 1;
+    for (i = 1; i <= num; i++)
         res *= i;
-    }
     return res;
 }
 
 
-int get_integer(int n, int r)
+int get_integer()
 {
-	
-	printf("Enter the value: ");
-	scanf("%d", &n);
-	
-	printf("Enter the value: ");
-	scanf("%d", &r);
-	
+    int input;
+    scanf("%d", &input);
+    return input;
 }
 
-
-int main(void)
-{
-	int a, b;
-	int result2 = get_integer(a, b);
-	int result = combination(a, b);
-	
-	printf("The result of C(%d, %d) is %d", a, b, result);
-	
-	return 0;
-}
