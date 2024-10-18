@@ -1,10 +1,8 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 int main(void)
 {
 	int x;
-	int result;
 	
 	printf("Enter an integer: ");
 	scanf("%i", &x);
@@ -13,7 +11,5 @@ int main(void)
 		x = -x;
 		
 	printf("%i", x);
-	
-	
-	
+
 }
