@@ -1,45 +1,17 @@
-/*
 
 #include <stdio.h>
-
+#include <stdlib.h>
+#include <time.h>
 int main(void)
 {
 	int i;
+	int max=45;
 	
+	srand((unsigned)time(NULL));
+	for(i=0;i<6; i++)
+	printf("%d",1+rand()%max);
 	
-	for (i = 0; i < 10; i++)
-	printf("*");
-	for (i = 0; i < 10; i++)
-	printf("*");
-	for (i = 0; i < 10; i++)
-	printf("*");
-	
- return 0;	
- 
- 
-}
-
-
-*/
-
-#include <stdio.h>
-
-void print_star()
-{
-	int i;
-	for (i = 0; i < 10; i++)
-	printf("*");
+	return 0;
 	
 }
-
-int main(void)
-{
-	print_star();
-	print_star();
-	print_star();
-	
- return 0;
-}
-
-
 

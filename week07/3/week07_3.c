@@ -1,7 +1,7 @@
 //week07_3
 //call by value
 
-/*
+
 void square(int a)
 {
 	a = a *a;
@@ -14,7 +14,7 @@ int main()
 	printf("a=%i\n", a);
 }
 
-*/
+/*
 
 int square( int a )
 {
@@ -28,6 +28,7 @@ int main()
 	printf("a=%i\n", a);
 }
 
+*/
 
 
 

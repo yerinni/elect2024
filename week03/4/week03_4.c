@@ -11,10 +11,10 @@ int main(void) {
     scanf_s("%d %d", &a, &b);  
 
     
-    result = (float)a / (float)b;
+    result = a / b;
 
     
-    printf("%f / %f = %f\n", (float)a, (float)b, result);
+    printf("%f / %f = %f\n", a, b, result);
 
     return 0;
 }
