@@ -42,7 +42,7 @@ int main(void)
 	{
 	if (a[i] != b[i])
 	{
-	  printf("%d", i);
+	  printf("%d\n", i);
 	  flag_same = 0;
 	}
 }
