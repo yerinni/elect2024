@@ -1,5 +1,6 @@
 //week13_1
 
+#include <stdio.h>
 
 struct student {
 	int ID;
