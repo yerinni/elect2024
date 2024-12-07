@@ -1,4 +1,3 @@
-//
 //  board.c
 //  sharkGame
 //
@@ -8,9 +7,9 @@
 // ----- EX. 3 : board ------------
 #define N_COINPOS       12
 #define MAX_COIN        4
-srand(unsigned(time(NULL)));
+
 // ----- EX. 3 : board ------------
-#define N_BOARD
+
 #define BOARDSTATUS_NOK  1
 #define BOARDSTATUS_OK   0
 
@@ -95,20 +94,22 @@ int board_initBoard(void)
 int board_stepShark(void)
 {
 	
-	board_stepShark() = (rand() % 6) + 1;
+	int steps = (rand() % MAX_SHARKSTEP) + 1;
 	
 	board_status[shark_position] = 0; 
 
 	shark_position += steps;
-	if (shark_position >= N_BOARD) {
-    shark_position = N_BOARD - 1; 
-}
+	
+	if (shark_position >= N_BOARD)
+	{	
+		shark_position = N_BOARD - 1; 
+	}
 
 
-	board_status[shark_position] = 1; 
+	board_status[shark_position] = BOARDSTATUS_NOK; 
 
 
-	shark_position = SHARK_INITPOS;
+	return shark_position;
 }
 // ----- EX. 5 : shark ------------
 

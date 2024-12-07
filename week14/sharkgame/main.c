@@ -242,12 +242,13 @@ int main(int argc, const char * argv[]) {
 		
 }
 // ----- EX. 6 : game end ------------
-	while (game_end() == 0)
-	{
-    //step 3. game end process
+	while (game_end() == 0);
+	
+
+//step 3. game end process
     printf("GAME END!!\n");
     printf("%i players are alive! winner is %s\n", getAlivePlayer(), player_name[getWinner()]);
-	}
+	
 
 // ----- EX. 6 : game end ------------
 
