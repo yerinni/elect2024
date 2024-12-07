@@ -17,15 +17,6 @@
 #define MAX_SHARKSTEP   6
 #define SHARK_INITPOS   -4
 
-if (turn == 0)
-{
-	int shark_pos = board_stepShark();
-	printf("Shark moved to %i\n", shark_pos);
-	
-	checkDie();
-}
-
-
 // ----- EX. 5 : shark ------------
 
 // ----- EX. 3 : board ------------
@@ -57,35 +48,37 @@ void board_printBoardStatus(void)
 
 // ----- EX. 5 : shark ------------
 
-
-
 //coin allocation
 int board_initBoard(void)
 {
     int i;
-    
-    //variable initialization
-    for (i=0;i<N_BOARD;i++)
+
+    for (i = 0; i < N_BOARD; i++)
     {
-        board_status[i] = BOARDSTATUS_OK;
-        board_coin[i] = 0;
+        board_status[i] = BOARDSTATUS_OK; 
+        board_coin[i] = 0;             
     }
-    
-    for (i=0;i<N_COINPOS;i++)
+
+
+
+    for (i = 0; i < N_COINPOS; i++)
     {
-    	while ( board_coin[i] != 0) 
-    	{
-    		if (board_coin[i] == 0)
-    		{
-    			board_coin[i] = (rand() % 4) + 1;
-			}
-		}
-	}
+        while (1) 
+        {
+            int pos = rand() % N_BOARD; 
+
+         
+            if (board_coin[pos] == 0)
+            {
+                board_coin[pos] = (rand() % MAX_COIN) + 1; 
+                break; 
+            }
+        }
+    }
+
+    return N_COINPOS; 
 }
-   
-    
-    return N_COINPOS;
-}
+
 
 // ----- EX. 3 : board ------------
 
