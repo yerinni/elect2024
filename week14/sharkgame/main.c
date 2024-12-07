@@ -11,7 +11,7 @@
 #include <time.h>
 // ----- EX. 1 : Preparation------------
 #include "board.h"
-srand(unsigned(time(NULL)));
+
 // ----- EX. 4 : player ------------
 #define N_PLAYER            3
 // ----- EX. 4 : player ------------
@@ -123,13 +123,37 @@ void checkDie(void)
 // ----- EX. 6 : game end ------------
 int getAlivePlayer(void)
 {
+   int i;
+   int cnt = 0;
+   for (i=0; i < N_PLAYER; i++)
+   {
+   		if (player_status[i] == PLAYERSTATUS_END)
+   			cnt++;
+   }
    
+   return cnt;
 }
 
 int getWinner(void)
 {
+	int i;
+	int winner = 0;
+	int max_coin = -1;
+	
+	 for (i=0; i < N_PLAYER; i++)
+   {
+   		if (player_coin[i] > max_coin)
+   		{
+   			max_coin = player_coin[i];
+   			winner = i;
+   			
+		}
+   }
+   
+   return winner;
     
 }
+
 // ----- EX. 6 : game end ------------
 
 
@@ -195,18 +219,43 @@ int main(int argc, const char * argv[]) {
         //step 2-3. moving
         player_position[turn] += dieResult;
         
-        if ( player_position[turn] >= N)BOARD )
+        if ( player_position[turn] >= N_BOARD )
         {
         	player_position[turn] = N_BOARD - 1;
 		}
 		
-		printf("Player %d moved to the %d space with %d roll.", 
-		player_name[turn], player_position[turn] , dieResult );
-   
         //step 2-4. coin
-    
+        
+        int board_getBoardCoin(int pos);
+        
+        player_position[turn] = board_getBoardCoin(int pos);
+        player_coin[turn] += coinResult;
+        
+        if ( coinResult != 0 )
+        {
+        	printf("Player %d has acquired %d coins.",player_name[turn], 
+			player_coin[turn] );
+		}
         
         //step 2-5. end process
+        
+        printf("Player %d moved to the %d space with %d roll.", 
+		player_name[turn], player_position[turn] , dieResult );
+		
+		
+		//Operation Verification
+		
+		while (1) {
+        printf("\n=== Player %d's turn ===\n", turn + 1);
+
+        int dice_result = (rand() % 6) + 1;
+        printf("dice result: %d\n", dice_result);
+
+        player_position[turn] += dice_result;
+
+        if (player_position[turn] >= N_BOARD) {
+            player_position[turn] = N_BOARD - 1;
+        }
     
 // ----- EX. 6 : game end ------------
     } while(game_end() == 0);
