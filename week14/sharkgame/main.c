@@ -1,4 +1,3 @@
-//
 // main.c
 // sharkgame
 //
@@ -127,7 +126,7 @@ int getAlivePlayer(void)
    int cnt = 0;
    for (i=0; i < N_PLAYER; i++)
    {
-   		if (player_status[i] == PLAYERSTATUS_END)
+   		if (player_status[i] == PLAYERSTATUS_LIVE)
    			cnt++;
    }
    
@@ -191,7 +190,7 @@ int main(int argc, const char * argv[]) {
         int dum;
 
 // ----- EX. 4 : player ------------
-        if (player_status[turn] != PLAYERSTATUS_LIVE)
+        if (player_status[turn] != PLAYERSTATUS_END)
         {
             turn = (turn + 1)%N_PLAYER;
             continue;
@@ -226,9 +225,7 @@ int main(int argc, const char * argv[]) {
 		
         //step 2-4. coin
         
-        int board_getBoardCoin(int pos);
-        
-        player_position[turn] = board_getBoardCoin(int pos);
+        player_position[turn] = board_getBoardCoin(turn);
         player_coin[turn] += coinResult;
         
         if ( coinResult != 0 )
@@ -243,29 +240,23 @@ int main(int argc, const char * argv[]) {
 		player_name[turn], player_position[turn] , dieResult );
 		
 		
-		//Operation Verification
-		
-		while (1) {
-        printf("\n=== Player %d's turn ===\n", turn + 1);
-
-        int dice_result = (rand() % 6) + 1;
-        printf("dice result: %d\n", dice_result);
-
-        player_position[turn] += dice_result;
-
-        if (player_position[turn] >= N_BOARD) {
-            player_position[turn] = N_BOARD - 1;
-        }
-    
+}
 // ----- EX. 6 : game end ------------
-    } while(game_end() == 0);
-    
+	while (game_end() == 0)
+	{
     //step 3. game end process
     printf("GAME END!!\n");
     printf("%i players are alive! winner is %s\n", getAlivePlayer(), player_name[getWinner()]);
+	}
+
 // ----- EX. 6 : game end ------------
-    
+
 // ----- EX. 2 : structuring ------------
 
-    return 0;
+ return 0;
+ 
 }
+
+
+
+
