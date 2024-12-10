@@ -3,7 +3,6 @@
 //
 
 
-
 #include <stdio.h>
 // ----- EX. 1 : Preparation------------
 #include <stdlib.h>
